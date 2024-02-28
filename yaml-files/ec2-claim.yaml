@@ -1,0 +1,15 @@
+---
+apiVersion: compositions.io/v1alpha1
+kind: Instance
+metadata:
+  name: "abc"
+spec:
+  parameters:
+    region: "us-east-1"
+    ami: "$(echo \"$parameters.ami\" | grep -o 'ami-[a-f0-9]\\+')"
+    instanceType: "t2.small"
+    keyName: "final"
+  compositionRef:
+    name: ec2-instance
+
+
